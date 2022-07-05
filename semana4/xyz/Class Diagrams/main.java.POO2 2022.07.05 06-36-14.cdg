@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="main.java.POO2">
+  <ClassDiagramComponents>
+    <Class name="BicicletaMontania" package="POO2" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="cambio" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="cambio"/>
+          <Argument type="String" name="marca"/>
+          <Argument type="String" name="color"/>
+          <Argument type="double" name="velocidad"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCambio" returnType="int" visibility="public"/>
+        <Method name="setCambio" returnType="void" visibility="public">
+          <Argument type="int" name="cambio"/>
+        </Method>
+        <Method name="getMarca" returnType="String" visibility="public"/>
+        <Method name="setMarca" returnType="void" visibility="public">
+          <Argument type="String" name="marca"/>
+        </Method>
+        <Method name="getColor" returnType="String" visibility="public"/>
+        <Method name="setColor" returnType="void" visibility="public">
+          <Argument type="String" name="color"/>
+        </Method>
+        <Method name="getVelocidad" returnType="double" visibility="public"/>
+        <Method name="setVelocidad" returnType="void" visibility="public">
+          <Argument type="double" name="velocidad"/>
+        </Method>
+        <Method name="subirCambio" returnType="void" visibility="public"/>
+        <Method name="bajarCambios" returnType="void" visibility="public"/>
+        <Method name="pedalear" returnType="void" visibility="public">
+          <Argument type="double" name="aceleracion"/>
+        </Method>
+        <Method name="hacerAlgo" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="BiciTrocha" package="POO2" visibility="public" xPosition="520.0" yPosition="192.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="main" package="POO2" visibility="public" xPosition="564.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
