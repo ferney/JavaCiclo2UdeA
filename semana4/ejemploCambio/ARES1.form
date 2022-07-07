@@ -129,7 +129,7 @@
             <StringItem index="0" value="PESOS"/>
             <StringItem index="1" value="DOLARES"/>
             <StringItem index="2" value="EUROS"/>
-            <StringItem index="3" value=" "/>
+            <StringItem index="3" value="SOLES"/>
           </StringArray>
         </Property>
       </Properties>

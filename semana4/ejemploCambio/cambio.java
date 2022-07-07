@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ejemploCambio;
 
-/**
- *
- * @author FERNEY CHAPARRO
- */
 public class cambio {
-    public double soles, euros, dolares,pesos;
+    private double soles, euros, dolares,pesos;
 
     public double getSoles() {
         return soles;
@@ -42,20 +35,29 @@ public class cambio {
     public void setPesos(double pesos) {
         this.pesos = pesos;
     }
-    //calcular dolares
-    public double calcularDolares(){
-    return getPesos()*4250;
+    //dolras a otros
+    double calcularDolaresAPesos() {
+       return getDolares()*4350;
     }
-    //calcular euros
-    public double calcularEuros(){
-    return getPesos()*4250;
+
+    double calcularDolaresAEuros() {
+   return getDolares()*1.1;
     }
-    //calcular soles
-    public double calcularSoles(){
-    return getPesos()*4250;
+
+    double calcularDolaresASoles() {
+        return getDolares()*3.39;
     }
-    //calcular pesso
-    public double calcularPesos(){
-    return getPesos()*4250;
+//calcular euros
+    double calcularEurosAPesos() {
+    return getEuros()*4437;
     }
+
+    double calcularEurosADolares() {
+   return getEuros()*1.02;
+    }
+
+    double calcularEurosASoles() {
+   return getEuros()*3.97;
+    }
+    
 }

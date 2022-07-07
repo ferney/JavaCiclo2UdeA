@@ -1,19 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package ejemploCambio;
 
-/**
- *
- * @author FERNEY CHAPARRO
- */
-public class ARES extends javax.swing.JFrame {
+public class ARES1 extends javax.swing.JFrame {
 
     /**
      * Creates new form ARES
      */
-    public ARES() {
+    public ARES1() {
         initComponents();
     }
 
@@ -48,7 +41,7 @@ public class ARES extends javax.swing.JFrame {
 
         jLabel3.setText("PASAR A:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PESOS", "DOLARES", "EUROS", " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PESOS", "DOLARES", "EUROS", "SOLES" }));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PESOS", "DOLARES", "EUROS", " " }));
 
@@ -147,44 +140,36 @@ public class ARES extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // creamos el objeto:
+        cambio cCambio= new cambio();
+        //enviar datos
+        
        String entrada= (String)jComboBox2.getSelectedItem();      
        String salida= (String)jComboBox1.getSelectedItem();      
        double monto=Double.parseDouble(jTextField1.getText());
        
-       double resultado=0;
-        if (entrada.equals("DOLARES")) {
-            if (salida.equals("PESOS")) {
-                resultado=monto*4350;
-                jTextArea1.setText(""+resultado);
-            } else if (salida.equals("EUROS")) {
-                resultado=monto*1.1;
-                jTextArea1.setText(""+resultado);
-            }
-            
-            
-        } else if (entrada.equals("PESOS")) {
-            if (salida.equals("DOLARES")) {
-                resultado=monto*0.000229738;
-                jTextArea1.setText(""+resultado);
-            } else if (salida.equals("EUROS")) {
-                resultado=monto/4400;
-                jTextArea1.setText(""+resultado);
-            }
-            
-            
-        }if (entrada.equals("EUROS")) {
-            if (salida.equals("PESOS")) {
-                resultado=monto*4400;
-                jTextArea1.setText(""+resultado);
-            } else if (salida.equals("DOLARES")) {
-                resultado=monto/1.1;
-                jTextArea1.setText(""+resultado);
-            }
-            
-            
+        if (entrada.equals("DOLARES") && salida.equals("PESOS")) {
+            cCambio.setDolares(monto);
+            jTextArea1.setText(""+cCambio.calcularDolaresAPesos());
+        }else if (entrada.equals("DOLARES") && salida.equals("EUROS")) {
+            cCambio.setDolares(monto);
+            jTextArea1.setText(""+cCambio.calcularDolaresAEuros());
+        }else if (entrada.equals("DOLARES") && salida.equals("SOLES")) {
+            cCambio.setDolares(monto);
+            jTextArea1.setText(""+cCambio.calcularDolaresASoles());        
+        }else if (entrada.equals("DOLARES") && salida.equals("DOLARES")) {
+            jTextArea1.setText(""+monto);        
+        }else if (entrada.equals("EUROS") && salida.equals("PESOS")) {
+            cCambio.setEuros(monto);
+            jTextArea1.setText(""+cCambio.calcularEurosAPesos());
+        }else if (entrada.equals("EUROS") && salida.equals("DOLARES")) {
+            cCambio.setEuros(monto);
+            jTextArea1.setText(""+cCambio.calcularEurosADolares());
+        }else if (entrada.equals("EUROS") && salida.equals("SOLES")) {
+            cCambio.setEuros(monto);
+            jTextArea1.setText(""+cCambio.calcularEurosASoles()); 
         }
-       
+        
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -216,20 +201,21 @@ public class ARES extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ARES.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ARES1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ARES.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ARES1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ARES.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ARES1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ARES.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ARES1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ARES().setVisible(true);
+                new ARES1().setVisible(true);
             }
         });
     }
