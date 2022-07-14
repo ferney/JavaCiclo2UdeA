@@ -11,6 +11,11 @@ package ejemplogui;
  */
 public class principal {
     public static void main(String[] args) {
-       
+        empleado emp= new empleado();
+        crud crud= new crud();
+        ui gui= new ui();
+        controlador con= new controlador(emp, crud, gui);
+        con.iniciar();
+        gui.setVisible(true);
     }
 }

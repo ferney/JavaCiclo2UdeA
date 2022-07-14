@@ -29,13 +29,35 @@ public class ui extends javax.swing.JFrame {
     }
 
     public final void mostrar(){
-    
+    DefaultTableModel modelo;
+    conexion con = new conexion();
+    java.sql.Connection mysql=con.Conectar();
+    PreparedStatement pstm;
+    ResultSet rs;
     
         try {
             
-            
+            String sql="select * from empleado order by nombre asc";
+            pstm=mysql.prepareStatement(sql);
+            rs=pstm.executeQuery();
+           String[] cabeceras={"ID","NOMBRE","APELLIDO","SEXO","SALARIO","TOTAL"};
+           String[] registros=new String[6];
+         modelo = new DefaultTableModel(null, cabeceras);
+            while (rs.next()) {
+                registros[0]=rs.getString("id");
+                registros[1]=rs.getString("nombre");
+                registros[2]=rs.getString("apellido");
+                registros[3]=rs.getString("sexo");
+                registros[4]=rs.getString("salario");
+                registros[5]=rs.getString("total");
+                modelo.addRow(registros);               
+            }
+           jTable1.setModel(modelo);
+           rs.close();
+           pstm.close();
+           mysql.close();
         } catch (SQLException e) {
-            
+            System.out.println(""+e);
         }
     }
     
@@ -247,9 +269,11 @@ public class ui extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         try {
-            
+            MessageFormat cabecera= new MessageFormat("UdeA MisionTic");
+            MessageFormat pie= new MessageFormat("- Página {0} -");
+            jTable1.print(JTable.PrintMode.FIT_WIDTH, cabecera,pie);
         } catch (PrinterException e) {
-           
+            System.out.println(""+e);
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
