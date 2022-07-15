@@ -1,0 +1,80 @@
+####
+GENERAMOS LA CLASE EMPLEADO, QUE TIENE COMO ATRIBUTO EL NOMBRE Y EL SALARIO
+#####
+
+package junit;
+
+/**
+ *
+ * @author FERNEY CHAPARRO
+ */
+public class empleado {
+   private String nombre;
+   private double salario;
+
+    public empleado(String nombre, double salario) {
+        this.nombre = nombre;
+        this.salario = salario;
+    }
+
+    public empleado() {
+    }
+
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }    
+   
+}
+
+
+#####################
+
+SEGUIDAMENTE EN EL MAIN GENERAMOS LA LOGICA DEL PROCESO
+
+######################
+public static void main(String[] args) {
+          //GENERAMOS UN ARRAYLIST DE EMPLEADOS
+         ArrayList<empleado> a = new ArrayList<>();
+         //ADICIONAMOS CADA EMPLEADO AL ARRAYLIST
+         a.add(new empleado("daniela", 1000));
+         a.add(new empleado("javier", 5));
+         a.add( new empleado("camilo", 1));
+         a.add(new empleado("diana", 20000));
+         a.add( new empleado("ludy", 10000));
+         
+       
+        //Una Collection es todo aquello que se puede recorrer (o “iterar”) y de lo que se puede saber el tamaño.
+        //Podemos usar la función sort() de la clase Collections para ordenar una lista. Podemos tomar el objeto de lista y modifica el orden de los elementos.
+       Collections.sort(a,new Ordenador());//llamamos a la función ordenador
+        //recorremos el arraylist ordenado y lo imprimimos
+        for (empleado e1 : a) {
+            System.out.println(e1);
+        }
+        
+    //El objeto Comparator se utiliza para comparar dos objetos diferentes en la misma clase
+    static class Ordenador implements Comparator<empleado> {
+    
+    //Usamos comparadores cuando hay más de una forma de comparar los dos objetos. Para utilizar la interfaz Comparator, la clase debe implementar el método compare(). 
+    //Puede usarse para comparar dos objetos de una manera que podría no alinearse con el orden natural del objeto.
+    //Este método deberá de devolver un valor negativo si el primer argumento es menor que el segundo, 
+    //un cero si los dos argumentos son iguales y un número positivo sin el primer elemento es mayor que el segundo.
+    @Override
+    public int compare(empleado a, empleado b)
+    {
+        return (int) (a.getSalario() - b.getSalario());
+    }
+       
+    }
